@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="loginPageBox">
-      <div className="loginInputContainer1">
+      <div className="logo">
         <img src={logo} alt=""/>
       </div>
       <div className="loginInputContainer">
