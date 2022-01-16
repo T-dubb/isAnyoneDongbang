@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import logo from './styles/dniLogo.png';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="loginPageBox">
+      <div className="loginInputContainer1">
+        <img src={logo} alt=""/>
+      </div>
+      <div className="loginInputContainer">
+        <input placeholder="학번" className="loginInputItem"/>
+      </div>
+      <div className="loginInputContainer">
+        <input placeholder="비밀번호" className="loginInputItem"/>
+      </div>
     </div>
   );
 }
