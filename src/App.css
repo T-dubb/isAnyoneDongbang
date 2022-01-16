@@ -1,38 +1,76 @@
-.App {
-  text-align: center;
+.backGround {
+  background-color: #F3ECE3;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 103px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.signUpBlock {
+  height: 553.96px;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+}
+
+.logo {
+  height: 164.96px;
+  width: 150px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 360px;
+  height: 229px;
+}
+
+.inputBox {
+  width: 249px;
+  height: 63px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.inputTitle {
+  flex-grow: 1;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.inputLine {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #DDEAF3;
+  border-radius: 6px;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.inputLine:focus {
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.signUpBtn {
+  display: flex;
+  line-height: 40px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 250px;
+  height: 40px;
+  background-color: #A18973;
+  border-radius: 6px;
   color: white;
+  font-weight: 700;
+  font-size: 14px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.text {
+  font-style: normal;
+  font: Gothic A1;
 }
