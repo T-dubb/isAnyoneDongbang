@@ -1,7 +1,20 @@
 import './App.css';
-// import appLogo from "./styles/dniLogo.png";
+import { useEffect } from 'react';
+import { firestore } from "./firebase";
 
 function App() {
+  //fortest
+  useEffect(() => {
+    // firestore.js에서 가져온 firestore 객체
+    firestore
+        .collection("users") //  "tasks" 컬렉션 반환
+        .get() // "tasks" 컬렉션의 모든 다큐먼트를 갖는 프로미스 반환
+        .then((docs) => {
+        docs.forEach((doc) => { console.log(doc.data());})
+        
+    });
+  }, []);
+  
   return (
     <div className="loginPageBox">
       <div className="logoContainer" >
