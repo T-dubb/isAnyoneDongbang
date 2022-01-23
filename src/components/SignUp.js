@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
-import '../styles/SignIn.css';
+import '../styles/SignUp.css';
 
-function SignIn() {
+function SignUp() {
     return (
         <div className="loginPageBox">
+            여기는 임시 SignUp임.
             <div className="logoContainer" >
                 <img className="logoItem" src="styles/dniLogo.png" alt="" />
             </div>
@@ -17,9 +17,8 @@ function SignIn() {
                     placeholder="비밀번호"
                 />
             </div>
-            <Link to="signup"><button>회원가입하기</button></Link>
         </div>
     );
 }
 
-export default SignIn;
+export default SignUp;
