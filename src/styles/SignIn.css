@@ -1,20 +1,91 @@
-.loginPageBox {
-  width: 100vw;
-  height: 100vh;
+.signInBackGround {
   background-color: #f3ece3;
-}
-
-.logoContainer {
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  justify-content: center;
-  margin-bottom: 47px;
+  align-items: stretch;
 }
 
-.loginInputContainer {
+.signInBlock {
+  width: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  margin-bottom: 37px;
 }
 
-.loginInputItem {
+.signInBlock .logo {
+  height: 164.96px;
+  width: 150px;
+}
+
+.signInBlock .signIn-inputArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 360px;
+  margin-top: 20px;
+}
+
+.signInBlock .signIn-inputArea .signIn-inputContainer {
+  width: 249px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 20px;
+}
+
+.signInBlock .signIn-inputArea .signIn-inputContainer .inputTitle {
+  flex-grow: 1;
+  font-size: 18px;
+  font-weight: bolder;
+  color: #a18973;
+  margin-bottom: 6px;
+}
+
+.signInBlock .signIn-inputArea .signIn-inputContainer .signIn-inputLine {
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #ddeaf3;
+  border-radius: 6px;
+  padding-left: 8px;
+}
+input::placeholder {
+  font-size: 16px;
+  font-weight: 400px;
+  color: #e4dad2;
+}
+
+.signInBlock .signIn-inputArea .signIn-inputContainer .signIn-inputLine:focus {
+  border-color: #a18973;
+  border-width: 2px;
+  outline: none;
+}
+
+.signInBlock .signInBtn {
+  display: flex;
+  line-height: 40px;
+  justify-content: center;
+  width: 250px;
+  height: 40px;
+  background-color: #a18973;
+  border-radius: 6px;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: 20px;
+}
+.signIn-findpwd {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #a18973;
+  text-align: right;
+}
+.signIn-signUp {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #a18973;
+  text-align: center;
+  cursor: pointer;
 }

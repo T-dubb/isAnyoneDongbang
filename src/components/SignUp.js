@@ -6,14 +6,14 @@ function SignUp() {
     const [studentId, setStudentId] = useState("")
     const [password, setPassword] = useState("")
 
-    const inputUserName = (evt) => {
-        setUserName(evt.target.value)
+    const inputUserName = (e) => {
+        setUserName(e.target.value)
     }
-    const inputStudentId = (evt) => {
-        setStudentId(evt.target.value)
+    const inputStudentId = (e) => {
+        setStudentId(e.target.value)
     }
-    const inputPassword = (evt) => {
-        setPassword(evt.target.value)
+    const inputPassword = (e) => {
+        setPassword(e.target.value)
     }
 
     const signUp = () => {
@@ -22,24 +22,28 @@ function SignUp() {
     }
 
     return (
-        <div className="backGround">
+        <div className="signUpBackGround">
             <div className="signUpBlock">
                 <img className="logo" src="dongnuit.png" />
                 <div className="inputArea">
                     <div className="inputContainer">
-                        <div className="inputTitle">name</div>
-                        <input className="inputLine" placeholder='name' value={userName} onChange={(evt) => inputUserName(evt)}/>
+                        <div className="inputTitle">이름</div>
+                        <input className="inputLine" placeholder='이름' value={userName} onChange={(evt) => inputUserName(evt)}/>
                     </div>
                     <div className="inputContainer">
-                        <div className="inputTitle">student-id</div>
-                        <input className="inputLine" placeholder='student-id' value={studentId} onChange={(evt) => inputStudentId(evt)}/>
+                        <div className="inputTitle">학번</div>
+                        <input className="inputLine" placeholder='학번' value={studentId} onChange={(evt) => inputStudentId(evt)}/>
                     </div>
                     <div className="inputContainer">
-                        <div className="inputTitle text">password</div>
-                        <input className="inputLine text" placeholder='password' value={password} onChange={(evt) => inputPassword(evt)}/>
+                        <div className="inputTitle text">비밀번호</div>
+                        <input className="inputLine text" placeholder='비밀번호' value={password} onChange={(evt) => inputPassword(evt)}/>
+                    </div>
+                    <div className="inputContainer">
+                        <div className="inputTitle text">친목조</div>
+                        <input className="inputLine text" placeholder='친목조' value={password} onChange={(evt) => inputPassword(evt)}/>
                     </div>
                 </div>
-                <div className="signUpBtn text" onClick={(evt) => signUp()}>sign-up</div>
+                <div className="signUpBtn text" onClick={(evt) => signUp()}>회원가입</div>
             </div>
         </div>
     )
