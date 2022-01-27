@@ -1,0 +1,13 @@
+.SignInPractice-container1{
+    display:flex;
+    height:100px;
+}
+.SignInPractice-item1{
+    flex-grow:1;
+}
+.SignInPractice-item2{
+    flex-grow:3;
+}
+.SignInPractice-item3{
+    flex-grow:2;
+}
