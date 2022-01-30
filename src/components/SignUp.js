@@ -1,15 +1,18 @@
-import '../styles/SignUp.css'
-import { useState } from 'react'
-import { firebaseApp } from '../firebase'
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import '../styles/SignUp.css';
+import { useState } from 'react';
+import { firebaseApp, firestoreDB } from '../firebase';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { collection, addDoc } from "firebase/firestore";
 
 function SignUp() {
     firebaseApp();
+    const db = firestoreDB();
     const auth = getAuth();
 
     const [userName, setUserName] = useState("")
     const [studentId, setStudentId] = useState("")
     const [password, setPassword] = useState("")
+    const [userGroup, setUserGroup] = useState("")
 
     const inputUserName = (e) => {
         setUserName(e.target.value)
@@ -21,22 +24,30 @@ function SignUp() {
         setPassword(e.target.value)
     }
 
-    const signUp = (name, id, password) => {
+    const inputUserGroup = (e) => {
+        setUserGroup(e.target.value)
+    }
+
+    const signUp = (name, id, password, group) => {
         const email = id + "@kaldi.kaist.ac.kr";
         createUserWithEmailAndPassword(auth, email, password)
+            .then(() => addDoc(collection(db, "userInfo"), {
+                studentId: id,
+                userName: name,
+                userGroup: group
+            }))
             .then(() => {
-                alert("환영합니다, " + name + "님!");
+                alert(`환영합니다, ${name}님!`);
             })
             .catch((error) => {
-                alert("오류 발생!");
-                console.log(error);
+                console.error("오류 발생: ", error);
             });
     }
 
     return (
         <div className="signUpBackGround">
             <div className="signUpBlock">
-                <img className="logo" src="dongnuit.png" />
+                <img className="logo" src="dongnuit.png" alt="동누잇 로고" />
                 <div className="inputArea">
                     <div className="inputContainer">
                         <div className="inputTitle">이름</div>
@@ -52,10 +63,10 @@ function SignUp() {
                     </div>
                     <div className="inputContainer">
                         <div className="inputTitle text">친목조</div>
-                        <input className="inputLine text" placeholder='친목조' value={userName} onChange={(evt) => inputUserName(evt)} />
+                        <input className="inputLine text" placeholder='친목조' value={userGroup} onChange={(evt) => inputUserGroup(evt)} />
                     </div>
                 </div>
-                <div className="signUpBtn text" onClick={(evt) => signUp(userName, studentId, password)}>회원가입</div>
+                <div className="signUpBtn text" onClick={(evt) => signUp(userName, studentId, password, userGroup)}>회원가입</div>
             </div>
         </div>
     )
