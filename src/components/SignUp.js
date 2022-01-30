@@ -52,7 +52,7 @@ function SignUp() {
                     </div>
                     <div className="inputContainer">
                         <div className="inputTitle text">친목조</div>
-                        <input className="inputLine text" placeholder='친목조' value={password} onChange={(evt) => inputPassword(evt)} />
+                        <input className="inputLine text" placeholder='친목조' value={userName} onChange={(evt) => inputUserName(evt)} />
                     </div>
                 </div>
                 <div className="signUpBtn text" onClick={(evt) => signUp(userName, studentId, password)}>회원가입</div>
