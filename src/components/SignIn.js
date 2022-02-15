@@ -50,7 +50,9 @@ function SignIn() {
                         <div className="signIn-findpwd">비밀번호를 잊어버리셨나요?</div>
                     </div>
                 </div>
-                <div className="signInBtn" onClick={(evt) => signIn(studentId, password)}>로그인</div>
+                <Link to="/home">
+                    <div className="signInBtn" onClick={(evt) => signIn(studentId, password)}>로그인</div>
+                </Link>
                 <Link to="/signUp">
                     <div className="signIn-signUp">회원 가입하기</div>
                 </Link>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import '../styles/SignUp.css';
 import { useState } from 'react';
 import { firebaseApp, firestoreDB } from '../firebase';
@@ -66,7 +67,9 @@ function SignUp() {
                         <input className="inputLine text" placeholder='친목조' value={userGroup} onChange={(evt) => inputUserGroup(evt)} />
                     </div>
                 </div>
+                <Link to="/">
                 <div className="signUpBtn text" onClick={(evt) => signUp(userName, studentId, password, userGroup)}>회원가입</div>
+                </Link>
             </div>
         </div>
     )
