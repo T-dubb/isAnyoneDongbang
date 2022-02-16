@@ -6,20 +6,21 @@
 // } from "react-router-dom";
 // import SignIn from "./components/SignIn";
 // import SignUp from "./components/SignUp";
+import React from 'react';
 
 function HomeScreen() {
   //private routing
   // useEffect(() => {
-    
-  
+
+
   //   return () => {
-      
+
   //   }
   // }, [])
   const logoutClick = () => {
-    
+
   }
-  
+
   return (
     <div>
       This is Home Screen.

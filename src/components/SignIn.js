@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import React from 'react';
 import { useState } from 'react';
 import '../styles/SignIn.css';
 import { firebaseApp, firestoreDB } from '../firebase';
