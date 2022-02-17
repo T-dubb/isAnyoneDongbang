@@ -42,6 +42,7 @@ function SignUp() {
                 alert(`환영합니다, ${name}님!`);
             })
             .catch((error) => {
+                alert("오류 발생!");
                 console.error("오류 발생: ", error);
             });
     }

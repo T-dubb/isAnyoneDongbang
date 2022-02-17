@@ -6,19 +6,36 @@
 // } from "react-router-dom";
 // import SignIn from "./components/SignIn";
 // import SignUp from "./components/SignUp";
-import React from 'react';
+import React, { useEffect } from 'react';
+import { firebaseApp } from '../firebase';
+import { getAuth, signOut } from 'firebase/auth';
 
 function HomeScreen() {
+  firebaseApp();
+  const auth = getAuth();
+  const user = auth.currentUser;
+  console.log(user);
+
   //private routing
-  // useEffect(() => {
+  useEffect(() => {
+    // if (user == null) {
+    //   window.location.href = "../";
+    // }
 
+    return () => {
 
-  //   return () => {
+    }
+  }, [user])
 
-  //   }
-  // }, [])
   const logoutClick = () => {
-
+    signOut(auth)
+      .then(() => {
+        window.location.href = "../";
+      })
+      .catch((error) => {
+        alert("오류 발생!");
+        console.log(error);
+      });
   }
 
   return (
