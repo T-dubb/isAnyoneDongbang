@@ -7,6 +7,7 @@ import {
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import HomeScreen from './components/HomeScreen';
+import RankTable from './components/RankTable';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<SignIn />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="home" element={<HomeScreen />} />
+        <Route path="RankTable" element={<RankTable />} />
       </Routes>
     </BrowserRouter>
   );
