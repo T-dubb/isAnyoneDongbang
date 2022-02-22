@@ -2,12 +2,11 @@ import { Link } from "react-router-dom";
 import React from 'react';
 import { useState } from 'react';
 import '../styles/SignIn.css';
-import { firebaseApp, firestoreDB } from '../firebase';
+import { firestoreDB } from '../firebase';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { collection, getDocs, query, where } from "firebase/firestore";
 
 function SignIn() {
-    firebaseApp();
     const db = firestoreDB();
     const auth = getAuth();
 
@@ -33,6 +32,9 @@ function SignIn() {
             .then((name) => {
                 alert(`환영합니다, ${name}님!`);
             })
+            .then(() => {
+                window.location.href = "./home";
+            })
             .catch((error) => {
                 alert("오류 발생!");
                 console.log(error);
@@ -51,9 +53,7 @@ function SignIn() {
                         <div className="signIn-findpwd">비밀번호를 잊어버리셨나요?</div>
                     </div>
                 </div>
-                <Link to="/home">
-                    <div className="signInBtn" onClick={(evt) => signIn(studentId, password)}>로그인</div>
-                </Link>
+                <div className="signInBtn" onClick={(evt) => signIn(studentId, password)}>로그인</div>
                 <Link to="/signUp">
                     <div className="signIn-signUp">회원 가입하기</div>
                 </Link>

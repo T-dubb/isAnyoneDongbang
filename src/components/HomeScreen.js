@@ -1,31 +1,13 @@
-// import './App.css'
-// import {
-//   BrowserRouter,
-//   Routes,
-//   Route
-// } from "react-router-dom";
-// import SignIn from "./components/SignIn";
-// import SignUp from "./components/SignUp";
-import React, { useEffect } from 'react';
-import { firebaseApp } from '../firebase';
-import { getAuth, signOut } from 'firebase/auth';
+import React from 'react';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 
 function HomeScreen() {
-  firebaseApp();
   const auth = getAuth();
-  const user = auth.currentUser;
-  console.log(user);
-
-  //private routing
-  useEffect(() => {
-    // if (user == null) {
-    //   window.location.href = "../";
-    // }
-
-    return () => {
-
+  onAuthStateChanged(auth, (user) => {
+    if (user == null) {
+      window.location.href = "../";
     }
-  }, [user])
+  });
 
   const logoutClick = () => {
     signOut(auth)

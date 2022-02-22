@@ -5,11 +5,14 @@ import {
   Route
 } from "react-router-dom";
 import React from 'react';
+import { firebaseApp } from "./firebase";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import HomeScreen from './components/HomeScreen';
 
 function App() {
+  firebaseApp();
+
   return (
     <BrowserRouter>
       <Routes>
