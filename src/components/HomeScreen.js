@@ -1,25 +1,25 @@
-// import './App.css'
-// import {
-//   BrowserRouter,
-//   Routes,
-//   Route
-// } from "react-router-dom";
-// import SignIn from "./components/SignIn";
-// import SignUp from "./components/SignUp";
+import React from 'react';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 
 function HomeScreen() {
-  //private routing
-  // useEffect(() => {
-    
-  
-  //   return () => {
-      
-  //   }
-  // }, [])
+  const auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if (user == null) {
+      window.location.href = "../";
+    }
+  });
+
   const logoutClick = () => {
-    
+    signOut(auth)
+      .then(() => {
+        window.location.href = "../";
+      })
+      .catch((error) => {
+        alert("오류 발생!");
+        console.log(error);
+      });
   }
-  
+
   return (
     <div>
       This is Home Screen.

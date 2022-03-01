@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import React from 'react';
 import '../styles/SignUp.css';
 import { useState } from 'react';
 import { firebaseApp, firestoreDB } from '../firebase';
@@ -41,6 +42,7 @@ function SignUp() {
                 alert(`환영합니다, ${name}님!`);
             })
             .catch((error) => {
+                alert("오류 발생!");
                 console.error("오류 발생: ", error);
             });
     }
@@ -68,7 +70,7 @@ function SignUp() {
                     </div>
                 </div>
                 <Link to="/">
-                <div className="signUpBtn text" onClick={(evt) => signUp(userName, studentId, password, userGroup)}>회원가입</div>
+                    <div className="signUpBtn text" onClick={(evt) => signUp(userName, studentId, password, userGroup)}>회원가입</div>
                 </Link>
             </div>
         </div>
