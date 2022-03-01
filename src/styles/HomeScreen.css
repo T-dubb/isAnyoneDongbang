@@ -12,3 +12,7 @@
   height: 100vh;
   padding-top: 55px;
 }
+.HomeScreenUserBox {
+  border: 1px solid;
+  /* 민정이가 수정해야 할 파트 */
+}

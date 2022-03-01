@@ -76,7 +76,7 @@ function HomeScreen() {
   }
   const UserBox = ({userName, occupancyTime}) => {
     return (
-      <div>
+      <div className="HomeScreenUserBox">
         <div>{userName}</div>
         <div>{occupancyTime}</div>
       </div>
