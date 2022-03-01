@@ -1,5 +1,6 @@
 import React from 'react';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import "../styles/HomeScreen.css";
 
 function HomeScreen() {
   const auth = getAuth();
@@ -22,7 +23,7 @@ function HomeScreen() {
 
   const Header = () => {
     return (
-      <div>
+      <div className="HomeScreenHeader">
         This is Header
       </div>
     );
