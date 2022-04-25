@@ -17,10 +17,10 @@ const RankTable = () => {
     <div className='RankTableBackGround'>
       <div className='RankTableHeader'>
           <div className="RankTableHomeWrapper">
-            <img className='RankTableHeaderImg' src="dongnuit.png"/>
+            <img className='RankTableHeaderImg' src="backBtn.png"/>
           </div>
           <div className="RankTableLogoWrapper">
-            <img className='RankTableHeaderImg' src="dongnuit.png"/>
+            <img className='RankTableHeaderImg' src="RTlogo.png"/>
           </div>
           <div className="RankTableEmptyWrapper">
           </div>
