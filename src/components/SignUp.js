@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import React from 'react';
 import '../styles/SignUp.css';
 import { useState } from 'react';
@@ -41,9 +41,29 @@ function SignUp() {
             .then(() => {
                 alert(`환영합니다, ${name}님!`);
             })
+            .then(() => {
+                window.location.href = "/";
+            })
             .catch((error) => {
-                alert("오류 발생!");
-                console.error("오류 발생: ", error);
+                let errorMessage = "";
+                if (name === "") errorMessage = "이름이 비어 있다!"; // approved by Seo; contact him if you 꼬우면
+                else if (id === "") errorMessage = "학번이 비어 있다!"; 
+                else if (password === "") errorMessage = "비밀번호가 비어 있다!";
+                else if (group === "") errorMessage = "친목조가 비어 있다!";
+                else {
+                    switch (error.code) {
+                        case "auth/email-already-in-use":
+                            errorMessage = "이미 해당 학번으로 가입된 계정이 있다!"; 
+                            break;
+                        case "auth/weak-password":
+                            errorMessage = "비밀번호가 너무 간단하다! 6글자 이상이어야 한다!";
+                            break;
+                        default:
+                            errorMessage = "예기치 못한 오류다! \n오류 코드: " + error.code;
+                    }
+                }
+                alert(`오류 발생! \n${errorMessage}`);
+                console.error(`오류 발생! \n${errorMessage}`);
             });
     }
 
@@ -69,9 +89,7 @@ function SignUp() {
                         <input className="inputLine text" placeholder='친목조' value={userGroup} onChange={(evt) => inputUserGroup(evt)} />
                     </div>
                 </div>
-                <Link to="/">
-                    <div className="signUpBtn text" onClick={(evt) => signUp(userName, studentId, password, userGroup)}>회원가입</div>
-                </Link>
+                <div className="signUpBtn text" onClick={(evt) => signUp(userName, studentId, password, userGroup)}>회원가입</div>
             </div>
         </div>
     )

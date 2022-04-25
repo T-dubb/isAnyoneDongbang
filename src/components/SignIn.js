@@ -36,8 +36,23 @@ function SignIn() {
                 window.location.href = "./home";
             })
             .catch((error) => {
-                alert("오류 발생!");
-                console.log(error);
+                let errorMessage = "";
+                if (id === "") errorMessage = "학번이 비어 있다!"; // approved by Seo; contact him if you 꼬우면
+                else if (password === "") errorMessage = "비밀번호가 비어 있다!";
+                else {
+                    switch (error.code) {
+                        case "auth/user-not-found":
+                            errorMessage = "해당 학번으로 가입된 계정이 없다!";
+                            break;
+                        case "auth/wrong-password":
+                            errorMessage = "비밀번호가 잘못되었다!";
+                            break;
+                        default:
+                            errorMessage = "예기치 못한 오류다! \n오류 코드: " + error.code;
+                    }
+                }
+                alert(`오류 발생! \n${errorMessage}`);
+                console.error(`오류 발생! \n${errorMessage}`);
             });
     }
     return (
